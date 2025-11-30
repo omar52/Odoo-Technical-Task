@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <category id="module_category_credit_limit" name="Credit Limit">
+            <field name="description">Category for credit limit management.</field>
+        </category>
+
+        <record id="group_edit_credit_limit" model="res.groups">
+            <field name="name">Edit Credit Limit</field>
+            <field name="category_id" ref="module_category_credit_limit"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="res_partner_view_form_region" model="ir.ui.view">
+            <field name="name">res.partner.view.form.inherit.region</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="region_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="res_partner_view_tree_region" model="ir.ui.view">
+            <field name="name">res.partner.view.tree.inherit.region</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="region_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="res_partner_view_search_region" model="ir.ui.view">
+            <field name="name">res.partner.view.search.inherit.region</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_select"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='salesperson']" position="after">
+                    <filter string="Region" name="region" context="{'group_by':'region_id'}"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="res_region_view_tree" model="ir.ui.view">
+            <field name="name">res.region.tree</field>
+            <field name="model">res.region</field>
+            <field name="arch" type="xml">
+                <tree string="Regions">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_region_view_form" model="ir.ui.view">
+            <field name="name">res.region.form</field>
+            <field name="model">res.region</field>
+            <field name="arch" type="xml">
+                <form string="Region">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_region_action" model="ir.actions.act_window">
+            <field name="name">Regions</field>
+            <field name="res_model">res.region</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_region"
+                  name="Regions"
+                  parent="sales_team.menu_sale_config"
+                  action="res_region_action"
+                  sequence="10"/>
+                  
+    </data>
+</odoo>
