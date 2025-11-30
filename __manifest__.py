@@ -8,10 +8,8 @@
     'depends': ['base', 'sale_management', 'account'],
     'data': [
         'security/ir.model.access.csv',
-        'security/customer_security.xml',
-        'views/sale_settings_views.xml',
-        'views/customer_credit_limit_views.xml',
-        'views/customer_region_views.xml',
+        'security/main_security.xml',
+        'views/main_views.xml',
     ],
     'installable': True,
     'application': True,
